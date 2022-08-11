@@ -71,7 +71,7 @@ BEGIN;
 delete from animals;
 ROLLBACK;
 
-/* Query 4 */
+/* Query 4  transtions, save point, delete and roll back  */
 
 BEGIN;
 DELETE from animals WHERE date_of_birth>'01-01-2022';
