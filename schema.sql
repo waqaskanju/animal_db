@@ -20,7 +20,7 @@ CREATE TABLE public.animals
 ALTER TABLE IF EXISTS public.animals
     OWNER to postgres;
 
-    /* Project 2  */
+    /* Project 2 alter table add column */
 
     ALTER TABLE IF EXISTS public.animals
     ADD COLUMN species character varying(30) COLLATE pg_catalog."default";
