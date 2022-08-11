@@ -65,7 +65,7 @@ UPDATE public.animals
 COMMIT;
 
 
-/*  Query 3 */
+/*  Query 3  delete transaction */
 
 BEGIN;
 delete from animals;

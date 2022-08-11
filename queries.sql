@@ -41,7 +41,7 @@ select neutered, max(escape_attempts) from animals Group By neutered;
 select neutered, min (weight_kg), max(weight_kg) from animals Group By neutered;
 
 
-/* Avg Escape attempts  by birth*/
+/* Avg Escape attempts  by birth between 1990 and 2000*/
 
 select neutered, avg(escape_attempts) from animals WHERE date_of_birth between '01-01-1990' and '01-01-2000' Group By neutered;
 
