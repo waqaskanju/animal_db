@@ -17,3 +17,32 @@ SELECT  * FROM public.animals WHERE name!='Gabumon'
 
 SELECT  * FROM public.animals WHERE weight_kg>=10.4 and weight_kg<=17.3
 
+/* Project 2 answer questions */
+
+/* Total Animals */
+select count(*) AS total_animals from animals
+
+
+/* Not escapted */
+
+SELECT count(escape_attempts) as not_escpated
+	FROM public.animals WHERE escape_attempts=0;
+
+/* Average weigth */
+
+select avg(weight_kg) as average_weight from animals;
+
+/* Max escape */
+
+select neutered, max(escape_attempts) from animals Group By neutered;
+
+/* Min and Max weight */
+
+select neutered, min (weight_kg), max(weight_kg) from animals Group By neutered;
+
+
+/* Avg Escape attempts  by birth*/
+
+select neutered, avg(escape_attempts) from animals WHERE date_of_birth between '01-01-1990' and '01-01-2000' Group By neutered;
+
+
