@@ -64,6 +64,12 @@ select animals.id,animals.name,species.name from animals
 select animals.id,animals.name as animal, owners.full_name as owner from animals 
        right join owners ON animals.owner_id = owners.id;
 
+/* Total animals per species */
+
+	Select count(*) as TotalCount, species.name from animals
+	inner join species on animals.species_id = species.id
+	Group by species.name;
+
 	/* Digimon owned by Jenefier */
 
 	select animals.name as animal, species.name as species, owners.full_name as owner from animals 
