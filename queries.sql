@@ -46,3 +46,45 @@ select neutered, min (weight_kg), max(weight_kg) from animals Group By neutered;
 select neutered, avg(escape_attempts) from animals WHERE date_of_birth between '01-01-1990' and '01-01-2000' Group By neutered;
 
 
+
+/* Project 3 Queriesy Multiple Tables */
+
+
+/* Which animals belong to  Melody Pond*/
+select animals.id,animals.name, owners.full_name from animals 
+        inner join owners ON animals.owner_id = owners.id WHERE owners.full_name='Melody Pond';
+
+/* Animals with species 'Pokemon */
+
+select animals.id,animals.name,species.name from animals 
+        inner join species ON animals.species_id = species.id WHERE species.name='Pokemon';
+
+/* Animals with owners */
+
+select animals.id,animals.name as animal, owners.full_name as owner from animals 
+       right join owners ON animals.owner_id = owners.id;
+
+/* Total animals per species */
+
+	Select count(*) as TotalCount, species.name from animals
+	inner join species on animals.species_id = species.id
+	Group by species.name;
+
+	/* Digimon owned by Jenefier */
+
+	select animals.name as animal, species.name as species, owners.full_name as owner from animals 
+       inner join species ON animals.species_id = species.id
+       join owners ON animals.owner_id=owners.id
+         WHERE species.name='Digimon' AND owners.full_name='Jennifer Orwell';
+        
+/* Animales owned by Dean Wincherter not escaped */
+		select animals.name as animal, owners.full_name as owner from animals 
+       join owners ON animals.owner_id=owners.id
+         WHERE   owners.full_name='Dean Winchester' AND escape_attempts=0 ;
+
+
+/* Who own the most animals */
+
+select count(owner_id) as animals, owners.full_name as owner from animals inner join owners 
+on animals.owner_id = owners.id
+group by owners.full_name ORDER by animals DESC LIMIT 1;

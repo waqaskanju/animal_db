@@ -79,3 +79,87 @@ SAVEPOINT birth_2022;
 update animals SET weight_kg = weight_kg*(-1);
 RollBack TO birth_2022;
 update animals SET weight_kg = weight_kg*(-1) WHERE weight_kg<0;
+
+
+/* Project 3  Queriing Multiple tables*/
+
+ /* Insert data into Owners table */
+
+INSERT INTO public.owners(
+	full_name, age)
+	VALUES ( 'Sam Smith', 34);
+
+ INSERT INTO public.owners(
+	full_name, age)
+	VALUES ( 'Jennifer Orwell', 19);
+    
+INSERT INTO public.owners(
+	full_name, age)
+	VALUES ( 'Bob', 45);
+    
+    
+INSERT INTO public.owners(
+	full_name, age)
+	VALUES ( 'Melody Pond', 77);
+    
+    
+INSERT INTO public.owners(
+	full_name, age)
+	VALUES ( 'Dean Winchester', 14);
+    
+    
+INSERT INTO public.owners(
+	full_name, age)
+	VALUES ( 'Jodie Whittaker', 38);
+    
+
+/* Insert data into  species table  */
+
+INSERT INTO public.species( name)
+	VALUES ( 'Pokemon');
+    
+INSERT INTO public.species( name)
+	VALUES ( 'Digimon');
+
+
+/* Add digimon where the name ends with mon */
+
+BEGIN;
+UPDATE public.animals
+    SET species_id =1 WHERE name LIKE '%mon';
+COMMIT:
+
+
+/* All other animals to Pokemon */
+BEGIN;
+UPDATE public.animals
+    SET species_id =2 WHERE species_id IS NULL;
+COMMIT;
+
+
+/* Modification in animal table to add owners; */
+
+BEGIN;
+
+UPDATE public.animals
+	SET  owner_id=2
+	WHERE name='Gabumon' OR name='Pikachu';
+    
+ UPDATE public.animals
+	SET  owner_id=1
+	WHERE name='Agumon';   
+    
+UPDATE public.animals
+	SET  owner_id=3
+	WHERE name='Devimon' OR name='Plantmon';
+    
+UPDATE public.animals
+	SET  owner_id=4
+	WHERE name='Charmander' OR name='Squirtle' OR name='Blossom';
+    
+UPDATE public.animals
+	SET  owner_id=5
+	WHERE name='Angemon' OR name='Boarmon';    
+select * from animals;
+
+commit;
