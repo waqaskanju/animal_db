@@ -63,4 +63,49 @@ ALTER TABLE IF EXISTS public.animals
     ALTER TABLE animals add COLUMN species_id INTEGER REFERENCES species (id) 
     
     /* Add owners_id column */
-  ALTER TABLE animals add COLUMN owner_id INTEGER REFERENCES owners (id) 
+  ALTER TABLE animals add COLUMN owner_id INTEGER REFERENCES owners (id)
+  
+
+  /* Project 4 */
+
+
+  /* Add vets table */
+
+     CREATE TABLE public.vets
+(
+    id serial NOT NULL,
+    name character varying(30) NOT NULL,
+    age integer  NOT NULL,
+    date_of_graduation date NOT NULL,
+    PRIMARY KEY (id)
+);
+
+    ALTER TABLE IF EXISTS public.vets
+    OWNER to postgres;
+
+
+    /* Create Specialization  Table */
+
+  CREATE TABLE public.specializations
+(
+    id serial NOT NULL,
+    vets_id INTEGER REFERENCES vets (id),
+    species_id INTEGER REFERENCES species (id)
+ );   
+
+  ALTER TABLE IF EXISTS public.specializations
+    OWNER to postgres;
+
+
+/* Create Visit Table */
+
+  CREATE TABLE public.visits
+(
+    id serial NOT NULL,
+    animals_id INTEGER REFERENCES animals (id),
+    vets_id INTEGER REFERENCES vets (id),
+    date_of_visit date not null
+ );   
+
+  ALTER TABLE IF EXISTS public.visits
+    OWNER to postgres;
