@@ -118,7 +118,7 @@ ALTER TABLE IF EXISTS public.animals
 
        /* to optiime query */
 
-     CREATE INDEX vets_idx ON visits (vets_id);
+     CREATE INDEX vets_visit_index ON visits (vets_id);
 
 
        /* to optiime query */
