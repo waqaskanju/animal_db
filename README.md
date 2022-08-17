@@ -79,6 +79,10 @@ Desktop Screen Size above >786
 - Twitter: [@twitterhandle](https://twitter.com/waqaskanju)
 - LinkedIn: [@LinkedIn](https://linkedin.com/in/waqaskanju)
 
+## Author 2
+👤 **Walter Velasquez**
+
+- GitHub: [@Sirvelasque](https://github.com/Sirvelasque)
 
 ## 🤝 Contributing
 

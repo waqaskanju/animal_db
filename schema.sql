@@ -109,3 +109,18 @@ ALTER TABLE IF EXISTS public.animals
 
   ALTER TABLE IF EXISTS public.visits
     OWNER to postgres;
+
+
+    /* to optiime query */
+
+     CREATE INDEX animals_idx ON visits (animals_id);
+
+
+       /* to optiime query */
+
+     CREATE INDEX vets_visit_index ON visits (vets_id);
+
+
+       /* to optiime query */
+
+     CREATE INDEX email_idx ON owners (email);
